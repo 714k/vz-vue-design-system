@@ -1,10 +1,17 @@
 {
-  "name": "vz-vue-design-system",
+  "name": "@714k/vz-vue-design-system",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "files": [
+    "./dist/*"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
+    "build:app": "run-p type-check build-only",
+    "build:lib": "rollup -c",
     "preview": "vite preview",
     "test:unit": "vitest",
     "test:e2e": "start-server-and-test preview :4173 'cypress run --e2e'",
@@ -17,11 +24,15 @@
     "build:sb": "build-storybook"
   },
   "dependencies": {
+    "@714k/vz-vue-design-system": "^0.0.0",
+    "rollup-plugin-import-css": "^3.1.0",
     "vue": "^3.2.47",
+    "vue-custom-element": "^3.3.0",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -45,6 +56,9 @@
     "jsdom": "^21.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
+    "rollup": "^3.17.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-vue": "^6.0.0",
     "start-server-and-test": "^1.15.4",
     "typescript": "~4.7.4",
     "vite": "^4.1.3",

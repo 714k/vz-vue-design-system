@@ -10,5 +10,10 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  template: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith('vz-')
+    }
   }
 })
